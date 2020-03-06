@@ -10,6 +10,7 @@ import ssl
 import tkinter as tk
 
 from time import time
+from typing import Any
 from subprocess import Popen
 from webbrowser import open_new
 from platform import architecture
@@ -1567,6 +1568,10 @@ class Frame(tk.Frame):
                 entry.pack()
                 entries[m] = entry
         return entries
+
+    def _set_entry(self, entry: tk.Entry, value: Any):
+        entry.delete(0, tk.END)
+        entry.insert(0, str(value))
 
     @staticmethod
     def doublevar(*args):
