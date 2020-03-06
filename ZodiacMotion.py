@@ -1285,6 +1285,22 @@ class Frame(tk.Frame):
             )
             yield scale
 
+    def set_starting_date(self, date: dt):
+        self._set_entry(self.starting_date["Year"], date.year)
+        self._set_entry(self.starting_date["Month"], date.month)
+        self._set_entry(self.starting_date["Day"], date.day)
+        self._set_entry(self.starting_date["Hour"], date.hour)
+        self._set_entry(self.starting_date["Minute"], date.minute)
+        self._set_entry(self.starting_date["Second"], date.second)
+
+    def set_ending_date(self, date: dt):
+        self._set_entry(self.ending_date["Year"], date.year)
+        self._set_entry(self.ending_date["Month"], date.month)
+        self._set_entry(self.ending_date["Day"], date.day)
+        self._set_entry(self.ending_date["Hour"], date.hour)
+        self._set_entry(self.ending_date["Minute"], date.minute)
+        self._set_entry(self.ending_date["Second"], date.second)
+
     def change_current_date(self, date: dt = None):
         for i in self.current_date:
             self.current_date[i].delete("0", "end")
